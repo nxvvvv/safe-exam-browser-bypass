@@ -8,7 +8,7 @@ This is a patch for SEB's VM and display detection.
 
 ## How to use
 
-1․ Download [SafeExamBrowser.Monitoring.dll](https://github.com/navaneethkm004/safe-exam-browser-bypass/blob/main/SafeExamBrowser.Monitoring.dll?raw=true) and [SafeExamBrowser.SystemComponents.dll](https://github.com/navaneethkm004/safe-exam-browser-bypass/blob/main/SafeExamBrowser.SystemComponents.dll?raw=true)
+1․ Download [SafeExamBrowser.Monitoring.dll](https://github.com/navaneethkm004/safe-exam-browser-bypass/blob/main/SafeExamBrowser.Monitoring.dll?raw=true) and [SafeExamBrowser.SystemComponents.dll](https://github.com/navaneethkm004/safe-exam-browser-bypass/blob/main/SafeExamBrowser.SystemComponents.dll?raw=true) by clicking these.
 
 2․ Copy these two files.
 
