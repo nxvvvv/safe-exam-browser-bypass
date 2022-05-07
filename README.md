@@ -34,6 +34,8 @@ It's recommended to use VMware(Free/Paid) since we can make the VM look like a r
 4․ Now there will be a file with extension `.vmx`. Right click that file and open with Notepad.
 
 5․ Now paste `smbios.reflecthost = "TRUE"` in a new line like this:
+![image](https://user-images.githubusercontent.com/34748927/167270852-36b89b22-bb09-4633-9040-90bc29e64f75.png)
+
 It doesn't matter where this is pasted. Just paste it in a new line.
 
 6․ Now save the file and voila! Your VM manufacturer and model is similar as your PC. This reduces the chance of VM detection.
@@ -47,13 +49,16 @@ Logs Path: `C:\Users\<username>\AppData\Local\SafeExamBrowser` and put your user
 Just edit these parts:
 1. In **Runtime.log** file,
 
+        
         INFO: [DisplayMonitor] Detected 0 active displays, 1 are allowed.
-to 
 
-    INFO: [DisplayMonitor] Detected 1 active displays, 1 are allowed.
+to
+
+        INFO: [DisplayMonitor] Detected 1 active displays, 1 are allowed.
 
 2. In **Client.log** file,
 
+        
         INFO: [WirelessAdapter] Wireless networks cannot be monitored, as there is no hardware adapter available or it is turned off.
 
 to
