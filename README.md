@@ -68,7 +68,7 @@ to
 
 
 ## Follow these steps if you're using v2.4 of SEB
-These `.dll` files are absent in the older version i.e. v2.4 of SEB.
+These `.dll` files are absent in the legacy version i.e. v2.4 of SEB.
 
 Basically this version of SEB doesn't check if you're using VM or not. So it's pretty easy to use it.
 
