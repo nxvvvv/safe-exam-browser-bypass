@@ -1,7 +1,7 @@
 
 # SEB Bypass Patch v3.3.2
 
-This is a patch for SEB's VM and display detection.
+By using this patch, you can use VM for SEB and use your usual desktop for searching answers for the questions asked in the exams conducted in SEB without them knowing 😉
 
 
 
