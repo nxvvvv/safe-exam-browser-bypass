@@ -1,7 +1,7 @@
 
 # SEB Bypass Patch v3.3.2
 
-By using this patch, you can use VM for SEB and use your usual desktop for searching answers for the questions asked in the exams conducted in SEB without them knowing 😉
+By using this patch, you can use a Windows Virtual Machine[[VMware](https://www.vmware.com/go/getplayer-win)] for SEB and use your usual desktop for searching answers for the questions asked in the exams conducted in SEB without them knowing 😉
 
 
 
