@@ -34,6 +34,7 @@ It's recommended to use VMware(Free/Paid) since we can make the VM look like a r
 4․ Now there will be a file with extension `.vmx`. Right click that file and open with Notepad.
 
 5․ Now paste `smbios.reflecthost = "TRUE"` in a new line like this:
+
 ![image](https://user-images.githubusercontent.com/34748927/167270852-36b89b22-bb09-4633-9040-90bc29e64f75.png)
 
 It doesn't matter where this is pasted. Just paste it in a new line.
