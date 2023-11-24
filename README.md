@@ -85,12 +85,3 @@ But, if they ask for logs, you need to delete these lines from the log file[Logs
 5. Do the same for `VGAuthService` and `vmtoolsd` and delete those lines.
 
 6. We did this to prevent the invigilators from detecting a VM since VMware tools run these services and if they see these services, you may get disqualified. Also this only works for VMware.
-
-
-
-
-
-
-<details>
-  <summary><b>credits</b></summary>
-  https://github.com/tynkering
