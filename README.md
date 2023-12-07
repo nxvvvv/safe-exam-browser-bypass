@@ -10,7 +10,7 @@ By using this patch, you can use a Windows Virtual Machine [[VMware Player](http
 
 1․ Download [SafeExamBrowser.Monitoring.dll](https://github.com/nxvvvv/safe-exam-browser-bypass/releases/download/v3.5.0.544/SafeExamBrowser.Monitoring.dll), [SafeExamBrowser.SystemComponents.dll](https://github.com/nxvvvv/safe-exam-browser-bypass/releases/download/v3.5.0.544/SafeExamBrowser.SystemComponents.dll) and [SafeExamBrowser.Client.exe](https://github.com/nxvvvv/safe-exam-browser-bypass/releases/download/v3.5.0.544/SafeExamBrowser.Client.exe) by clicking these.
 
-2․ Copy these two files.
+2․ Copy these three files.
 
 3․ Go to `C:\Program Files\SafeExamBrowser\Application`.
 
