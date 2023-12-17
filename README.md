@@ -85,6 +85,25 @@ But, if they ask for logs, you need to delete these lines from the log file[Logs
 
 6. We did this to prevent the invigilators from detecting a VM since VMware tools run these services and if they see these services, you may get disqualified. Also this only works for VMware.
 
-
 ## License
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fnxvvvv%2Fsafe-exam-browser-bypass.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2Fnxvvvv%2Fsafe-exam-browser-bypass?ref=badge_small)
+
+<details>
+  <summary>Note</summary>
+
+## Patches Disclaimer
+
+The patches included in this repository were created by [nxvvvv](https://github.com/nxvvvv). However, it's important to note the following:
+
+- The Safe Exam Browser itself is not developed or owned by [nxvvvv](https://github.com/nxvvvv).
+- The patches provided in this repository are modifications made by [nxvvvv](https://github.com/nxvvvv) and are licensed separately.
+
+## Patch Licensing
+
+The patches in this repository are licensed under AGPL-3.0. You can find the details of the license in the [LICENSE](./LICENSE) file.
+
+## Original Safe Exam Browser
+
+The original Safe Exam Browser is not affiliated with [nxvvvv](https://github.com/nxvvvv), and its development and ownership are separate entities. For information about the original Safe Exam Browser, please refer to their official [repository](https://github.com/SafeExamBrowser/seb-win-refactoring).
+
+</details>
