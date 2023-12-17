@@ -35,7 +35,6 @@ It's recommended to use VMware(Free/Paid) since we can make the VM look like a r
 5․ Now paste `smbios.reflecthost = "TRUE"` in a new line like this:
 
 ![image](https://user-images.githubusercontent.com/34748927/167270852-36b89b22-bb09-4633-9040-90bc29e64f75.png)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fnxvvvv%2Fsafe-exam-browser-bypass.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fnxvvvv%2Fsafe-exam-browser-bypass?ref=badge_shield)
 
 It doesn't matter where this is pasted. Just paste it in a new line.
 
