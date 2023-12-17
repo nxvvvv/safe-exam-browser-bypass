@@ -88,4 +88,4 @@ But, if they ask for logs, you need to delete these lines from the log file[Logs
 
 
 ## License
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fnxvvvv%2Fsafe-exam-browser-bypass.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fnxvvvv%2Fsafe-exam-browser-bypass?ref=badge_large)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fnxvvvv%2Fsafe-exam-browser-bypass.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2Fnxvvvv%2Fsafe-exam-browser-bypass?ref=badge_small)
