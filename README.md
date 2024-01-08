@@ -91,6 +91,10 @@ But, if they ask for logs, you need to delete these lines from the log file[Logs
 <details>
   <summary>Note</summary>
 
+## Usage Disclaimer
+
+This patch is provided for educational purposes only. The usage of this patch to circumvent exam regulations or engage in any form of cheating is strictly prohibited. The author and contributors of this patch are not responsible for any consequences or misuse of this information.
+
 ## Patches Disclaimer
 
 The patches included in this repository were created by [nxvvvv](https://github.com/nxvvvv). However, it's important to note the following:
