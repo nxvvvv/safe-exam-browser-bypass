@@ -1,4 +1,4 @@
-# SEB Bypass Patch v3.5.0.544
+# SEB Bypass Patch v3.6.0.633
 
 By using this patch, you can use a Windows Virtual Machine [[VMware Player](https://www.vmware.com/go/getplayer-win)] for SEB and use your usual desktop for searching answers for the questions asked in the exams conducted in SEB without them knowing 😉
 
@@ -7,7 +7,7 @@ By using this patch, you can use a Windows Virtual Machine [[VMware Player](http
 
 ## How to use
 
-1․ Download [SafeExamBrowser.Monitoring.dll](https://github.com/nxvvvv/safe-exam-browser-bypass/releases/download/v3.5.0.544/SafeExamBrowser.Monitoring.dll), [SafeExamBrowser.SystemComponents.dll](https://github.com/nxvvvv/safe-exam-browser-bypass/releases/download/v3.5.0.544/SafeExamBrowser.SystemComponents.dll) and [SafeExamBrowser.Client.exe](https://github.com/nxvvvv/safe-exam-browser-bypass/releases/download/v3.5.0.544/SafeExamBrowser.Client.exe) by clicking these.
+1․ Download [SafeExamBrowser.Monitoring.dll](https://github.com/nxvvvv/safe-exam-browser-bypass/raw/main/SafeExamBrowser.Monitoring.dll), [SafeExamBrowser.SystemComponents.dll](https://github.com/nxvvvv/safe-exam-browser-bypass/raw/main/SafeExamBrowser.SystemComponents.dll) and [SafeExamBrowser.Client.exe](https://github.com/nxvvvv/safe-exam-browser-bypass/raw/main/SafeExamBrowser.Client.exe) by clicking these.
 
 2․ Copy these three files.
 
