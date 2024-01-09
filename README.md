@@ -1,6 +1,6 @@
 # SEB Bypass Patch v3.6.0.633
 
-By using this patch, you can use a Windows Virtual Machine [[VMware Player](https://www.vmware.com/go/getplayer-win)] for SEB and use your usual desktop for searching answers for the questions asked in the exams conducted in SEB without them knowing 😉
+By using this patch, you can use a Windows Virtual Machine [[VMware Player](https://www.vmware.com/go/getplayer-win)] for SEB and use your usual desktop for searching answers to the questions asked in the exams conducted in SEB without them knowing 😉
 
 
 
@@ -20,17 +20,17 @@ By using this patch, you can use a Windows Virtual Machine [[VMware Player](http
 6․ After replacing, open SEB and voila it runs in a VM.
 ## Recommended
 
-It's recommended to use VMware(Free/Paid) since we can make the VM look like a real computer by copying the host computer's (the computer in which VM is running) model and company.
+It's recommended to use VMware(Free/Paid) since we can make the VM look like a real computer by copying the host computer's (the computer in which the VM is running) model and company.
 
 **Steps to do this:**
 
-1․ First go to the directory where you installed the Windows VM. Its the *Documents* folder by default.
+1․ First go to the directory where you installed the Windows VM. It's the *Documents* folder by default.
 
 2․ In *Documents* folder, there will be a folder called *Virtual Machines*.
 
-3․ Open that folder and select the Windows VM folder and open it.
+3․ Open that folder & select the Windows VM folder and open it.
 
-4․ Now there will be a file with extension `.vmx`. Right click that file and open with Notepad.
+4․ Now there will be a file with extension `.vmx`. Right-click that file and open it with Notepad.
 
 5․ Now paste `smbios.reflecthost = "TRUE"` in a new line like this:
 
@@ -38,7 +38,7 @@ It's recommended to use VMware(Free/Paid) since we can make the VM look like a r
 
 It doesn't matter where this is pasted. Just paste it in a new line.
 
-6․ Now save the file and voila! Your VM manufacturer and model is similar as your PC. This reduces the chance of VM detection.
+6․ Now save the file and voila! Your VM manufacturer and model are similar to your PC. This reduces the chance of VM detection.
 
 # DON'T FORGET
 
@@ -69,13 +69,13 @@ to
 ## Follow these steps if you're using v2.4 of SEB
 These `.dll` files are absent in the legacy version i.e. v2.4 of SEB.
 
-Basically this version of SEB doesn't check if you're using VM or not. So it's pretty easy to use it.
+This version of SEB doesn't check if you're using VM or not. So it's pretty easy to use it.
 
 But, if they ask for logs, you need to delete these lines from the log file[Logs Path: `C:\Users\<username>\AppData\Roaming\SafeExamBrowser`  and put your user name in place of `<username>`]:
 
 1. Open **Sebclient.log**
 
-2. Now press Ctrl key and F key.
+2. Now press the Ctrl key and F key.
 
 3. Now paste `vm3dservice` there and click find.
 
@@ -83,7 +83,7 @@ But, if they ask for logs, you need to delete these lines from the log file[Logs
 
 5. Do the same for `VGAuthService` and `vmtoolsd` and delete those lines.
 
-6. We did this to prevent the invigilators from detecting a VM since VMware tools run these services and if they see these services, you may get disqualified. Also this only works for VMware.
+6. We did this to prevent the invigilators from detecting a VM since VMware tools run these services and if they see these services, you may get disqualified. Also, this only works for VMware.
 
 ## License
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fnxvvvv%2Fsafe-exam-browser-bypass.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2Fnxvvvv%2Fsafe-exam-browser-bypass?ref=badge_small)
