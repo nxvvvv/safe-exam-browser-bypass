@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plist version="1.0">
+  <dict>
+    <key>startURL</key>
+    <string>https://safeexambrowser.org/start/</string>
+    <key>sebConfigPurpose</key>
+    <integer>0</integer>
+    <key>allowVirtualMachine</key>
+    <true />
+    <key>allowedDisplaysMaxNumber</key>
+    <integer>2</integer>
+    <key>allowedDisplayBuiltinEnforce</key>
+    <false />
+    <key>allowedDisplaysIgnoreFailure</key>
+    <false />
+    <key>enableSessionVerification</key>
+    <true />
+    <key>allowQuit</key>
+    <true />
+  </dict>
+</plist>

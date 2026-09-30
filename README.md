@@ -1,110 +1,75 @@
-# SEB Bypass Patch v3.6.0.633
+# SEB administrator configuration for Windows
 
-By using this patch, you can use a Windows Virtual Machine [[VMware Player](https://www.vmware.com/go/getplayer-win)] for SEB and use your usual desktop for searching answers to the questions asked in the exams conducted in SEB without them knowing 😉
+This branch provides an example of supported administrator-controlled VM and display settings for an **unmodified** Safe Exam Browser installation. It does not provide a bypass patch for current SEB, conceal the environment, or modify exam logs.
 
-## How to use
+## Version and scope
 
-1․ Download [SafeExamBrowser.Monitoring.dll](https://github.com/nxvvvv/safe-exam-browser-bypass/raw/main/SafeExamBrowser.Monitoring.dll), [SafeExamBrowser.SystemComponents.dll](https://github.com/nxvvvv/safe-exam-browser-bypass/raw/main/SafeExamBrowser.SystemComponents.dll) and [SafeExamBrowser.Client.exe](https://github.com/nxvvvv/safe-exam-browser-bypass/raw/main/SafeExamBrowser.Client.exe) by clicking these.
+The target is **SEB for Windows 3.10.2.920**, the latest upstream Windows release checked on **2026-09-30** ([release notes and installers](https://github.com/SafeExamBrowser/seb-win-refactoring/releases/tag/v3.10.2)).
 
-2․ Copy these three files.
+| Item | Status |
+| --- | --- |
+| Configuration example | Targets the official Windows 3.10.2.920 configuration keys and XML format |
+| Operating system | Windows 10 version 1803 or newer, including Windows 11 |
+| Runtime dependencies | .NET Framework 4.8 and Visual C++ 2022 Redistributable; use the official setup bundle to install prerequisites |
+| macOS and iOS | Outside the scope of this example |
+| Root-level EXE and DLL files | Historical **3.6.0.633** patches, unchanged and not supported for the current release |
 
-3․ Go to `C:\Program Files\SafeExamBrowser\Application`.
+**Do not copy this repository's `SafeExamBrowser.Client.exe`, `SafeExamBrowser.Monitoring.dll`, or `SafeExamBrowser.SystemComponents.dll` into a current SEB installation.** There is no updated binary patch in this branch. If an existing installation contains modified files, uninstall it through Windows and install a fresh official release before configuring it.
 
-4․ Paste it in this folder.
+Configuration keys and parsing behavior were checked against upstream commit [`397f8e1`](https://github.com/SafeExamBrowser/seb-win-refactoring/tree/397f8e124387c54a9a770809003dd2e31946dcd5), tagged `v3.10.2`. This is not certification of a particular VM, display driver, or exam platform; no live exam or VM session has been validated here. Recheck the official release notes before deploying a newer release.
 
-5․ You'll need `admin perms` to replace files in this folder.
+## Administrator example
 
-6․ After replacing, open SEB and voila it runs in a VM.
-## Recommended
+Download [administrator-example.seb](config/administrator-example.seb) and open it **from the SEB Configuration Tool**, using **Open Settings...**. Do not double-click it merely to edit it: Windows normally associates `.seb` files with starting SEB, which can enter kiosk mode.
 
-It's recommended to use VMware(Free/Paid) since we can make the VM look like a real computer by copying the host computer's (the computer in which the VM is running) model and company.
+The file is a readable, unencrypted XML property list for a practice setup, not a protected production exam configuration. It uses SEB's information page as its Start URL and permits quitting without a password.
 
-**Steps to do this:**
+**This is a standalone example, not an overlay.** Opening it does not merge these settings into an existing exam configuration; omitted settings use the tool's defaults. For an actual exam, open the institution's existing configuration instead and change only the settings approved by the exam administrator.
 
-1․ First go to the directory where you installed the Windows VM. It's the *Documents* folder by default.
+| Setting | Example value | Meaning |
+| --- | --- | --- |
+| `startURL` | `https://safeexambrowser.org/start/` | Official information page, not an exam |
+| `sebConfigPurpose` | `0` | Start a session; do not replace persistent client settings |
+| `allowVirtualMachine` | `true` | Explicitly permit a VM; do not disguise it as a physical machine |
+| `allowedDisplaysMaxNumber` | `2` | Allow at most two displays when display detection succeeds |
+| `allowedDisplayBuiltinEnforce` | `false` | Do not restrict the setup to built-in displays |
+| `allowedDisplaysIgnoreFailure` | `false` | Keep display-validation errors visible and blocking |
+| `enableSessionVerification` | `true` | Retain session integrity verification |
+| `allowQuit` | `true` | Allow exiting the practice session |
 
-2․ In *Documents* folder, there will be a folder called *Virtual Machines*.
+No logging or kiosk-mode overrides are included. Normal monitoring remains active.
 
-3․ Open that folder & select the Windows VM folder and open it.
+**VM permission does not guarantee display compatibility.** The upstream manual warns that display detection can fail inside VMs. This example deliberately leaves **Ignore errors when validating display configuration** off: it will not start successfully on a VM where SEB cannot validate the displays. Use an administrator-approved environment with working display detection rather than treating this example as universal VM support.
 
-4․ Now there will be a file with extension `.vmx`. Right-click that file and open it with Notepad.
+## Prepare an approved exam configuration
 
-5․ Now paste `smbios.reflecthost = "TRUE"` in a new line like this:
+1. Install [the official Windows setup bundle](https://github.com/SafeExamBrowser/seb-win-refactoring/releases/download/v3.10.2/SEB_3.10.2.920_SetupBundle.exe). Keep every SEB component from the same official installation.
+2. Start the installed **SEB Configuration Tool** (`SebWindowsConfig.exe`). Open the practice example for evaluation, or the institution's existing settings for deployment.
+3. In **Security**, review **Allow SEB to run inside virtual machine**, **Maximum allowed number of connected displays**, and **Allow only internal displays (laptops)**. Set the actual VM permission and display limit required by the institution; the example's two-display allowance is not an exam policy.
+4. In **General**, set the administrator-approved Start URL and administrator and quit/unlock passwords. Review the remaining institution-specific controls, including permitted applications, URL filtering, kiosk mode, and any proctoring requirements.
+5. In **Config File**, select **Use SEB settings file for ... starting an exam**, configure encryption with a password or cryptographic identity, and use **Save Settings As...** to create a separate protected `.seb` file. Do not distribute the editable practice file as a production configuration or commit passwords, private keys, or real exam configuration files.
+6. Have the exam administrator register the final **Config Key** and/or **Browser Exam Key** with the exam platform, as required. A settings change changes the Config Key; the Browser Exam Key also depends on the SEB build and differs between the x86 and x64 builds. Do not reuse keys from the old patched installation.
+7. Run an administrator-supervised practice session on the intended machine, with its intended displays and the final protected settings. Confirm the Start URL, exit procedure, display limit, normal logs, and exam-platform acceptance before deployment.
 
-![image](https://user-images.githubusercontent.com/34748927/167270852-36b89b22-bb09-4633-9040-90bc29e64f75.png)
+The exam platform or an institution-managed client can reject configurations it has not approved. This example does not override that authorization.
 
-It doesn't matter where this is pasted. Just paste it in a new line.
+## Troubleshooting
 
-6․ Now save the file and voila! Your VM manufacturer and model are similar to your PC. This reduces the chance of VM detection.
+| Symptom | Supported action |
+| --- | --- |
+| VM is still rejected | Ask the administrator to confirm that the active, approved configuration permits VMs; editing an unrelated local file does not change the institution's policy |
+| Display validation fails | Check the display driver and topology with the administrator or use an approved physical machine; this example does not ignore detection failures |
+| Too many displays | Disconnect displays above the approved limit, or have the administrator authorize and redistribute a revised configuration |
+| Config Key or Browser Exam Key is rejected | Have the administrator register the keys for the final settings and exact official client build |
+| Integrity error after replacing files | Restore a clean official installation; do not mix historical patched files with current components |
 
-# DON'T FORGET
+Keep SEB's original logs intact when requesting support. The usual Windows log directory is `%LocalAppData%\SafeExamBrowser`.
 
-Don't forget to edit logs if your exam invigilator asks you for your Client and Runtime logs. 
+## References and license
 
-Logs Path: `C:\Users\<username>\AppData\Local\SafeExamBrowser` and put your user name in place of `<username>`
+- [Official Windows administrator manual](https://safeexambrowser.org/windows/win_usermanual_en.html)
+- [Official SEB downloads](https://safeexambrowser.org/download_en.html)
+- [Configuration keys for the pinned release](https://github.com/SafeExamBrowser/seb-win-refactoring/blob/397f8e124387c54a9a770809003dd2e31946dcd5/SafeExamBrowser.Configuration/ConfigurationData/Keys.cs)
+- [XML configuration parser for the pinned release](https://github.com/SafeExamBrowser/seb-win-refactoring/blob/397f8e124387c54a9a770809003dd2e31946dcd5/SafeExamBrowser.Configuration/DataFormats/XmlParser.cs)
 
-Just edit these parts:
-1. In **Runtime.log** file,
-
-        
-        INFO: [DisplayMonitor] Detected 0 active displays, 1 are allowed.
-
-to
-
-        INFO: [DisplayMonitor] Detected 1 active displays, 1 are allowed.
-
-2. In **Client.log** file,
-
-        
-        INFO: [WirelessAdapter] Wireless networks cannot be monitored, as there is no hardware adapter available or it is turned off.
-
-to
-
-        INFO: [WirelessAdapter] Started monitoring the wireless network adapter.
-
-
-## Follow these steps if you're using v2.4 of SEB
-These `.dll` files are absent in the legacy version i.e. v2.4 of SEB.
-
-This version of SEB doesn't check if you're using VM or not. So it's pretty easy to use it.
-
-But, if they ask for logs, you need to delete these lines from the log file[Logs Path: `C:\Users\<username>\AppData\Roaming\SafeExamBrowser`  and put your user name in place of `<username>`]:
-
-1. Open **Sebclient.log**
-
-2. Now press the Ctrl key and F key.
-
-3. Now paste `vm3dservice` there and click find.
-
-4. Now delete the lines where this is shown.
-
-5. Do the same for `VGAuthService` and `vmtoolsd` and delete those lines.
-
-6. We did this to prevent the invigilators from detecting a VM since VMware tools run these services and if they see these services, you may get disqualified. Also, this only works for VMware.
-
-## License
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fnxvvvv%2Fsafe-exam-browser-bypass.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2Fnxvvvv%2Fsafe-exam-browser-bypass?ref=badge_small)
-
-<details>
-  <summary>Note</summary>
-
-## Usage Disclaimer
-
-This patch is provided for educational purposes only. The usage of this patch to circumvent exam regulations or engage in any form of cheating is strictly prohibited. The author and contributors of this patch are not responsible for any consequences or misuse of this information.
-
-## Patches Disclaimer
-
-The patches included in this repository were created by [nxvvvv](https://github.com/nxvvvv). However, it's important to note the following:
-
-- The Safe Exam Browser itself is not developed or owned by [nxvvvv](https://github.com/nxvvvv).
-- The patches provided in this repository are modifications made by [nxvvvv](https://github.com/nxvvvv) and are licensed separately.
-
-## Patch Licensing
-
-The patches in this repository are licensed under AGPL-3.0. You can find the details of the license in the [LICENSE](./LICENSE) file.
-
-## Original Safe Exam Browser
-
-The original Safe Exam Browser is not affiliated with [nxvvvv](https://github.com/nxvvvv), and its development and ownership are separate entities. For information about the original Safe Exam Browser, please refer to their official [repository](https://github.com/SafeExamBrowser/seb-win-refactoring).
-
-</details>
+This repository is not affiliated with the Safe Exam Browser project. Repository contributions are covered by [AGPL-3.0](LICENSE); upstream Safe Exam Browser components retain their own licenses. See the [upstream repository](https://github.com/SafeExamBrowser/seb-win-refactoring) for its source and licensing information.
